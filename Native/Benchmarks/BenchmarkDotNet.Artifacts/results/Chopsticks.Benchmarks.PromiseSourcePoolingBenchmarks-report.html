@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Chopsticks.Benchmarks.PromiseSourcePoolingBenchmarks-20260519-123154</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26200.8457)
+Unknown processor
+.NET SDK 9.0.314
+  [Host]     : .NET 9.0.16 (9.0.1626.22923), X64 RyuJIT AVX2
+  Job-BDLTLX : .NET 9.0.16 (9.0.1626.22923), X64 RyuJIT AVX2
+  ShortRun   : .NET 9.0.16 (9.0.1626.22923), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>WarmupCount=3  
+</code></pre>
+
+<table>
+<thead><tr><th>Method                                     </th><th>Job </th><th>IterationCount</th><th>LaunchCount</th><th>VectorCount</th><th>Mean  </th><th>Error  </th><th>StdDev </th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>6,735.875 &mu;s</td><td>10.4574 &mu;s</td><td>6.2230 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>895.431 &mu;s</td><td>37.1019 &mu;s</td><td>24.5406 &mu;s</td><td>807.6172</td><td>15200000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>6,567.446 &mu;s</td><td>338.6200 &mu;s</td><td>18.5609 &mu;s</td><td>-</td><td>1 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>977.987 &mu;s</td><td>1,626.5209 &mu;s</td><td>89.1551 &mu;s</td><td>807.6172</td><td>15200000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>6,767.300 &mu;s</td><td>208.0835 &mu;s</td><td>123.8271 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>1,008.526 &mu;s</td><td>219.1536 &mu;s</td><td>144.9566 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>6,819.348 &mu;s</td><td>266.3086 &mu;s</td><td>14.5973 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>1,134.213 &mu;s</td><td>502.8519 &mu;s</td><td>27.5630 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>6,777.622 &mu;s</td><td>261.7598 &mu;s</td><td>155.7691 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>1,123.447 &mu;s</td><td>57.7267 &mu;s</td><td>38.1826 &mu;s</td><td>807.6172</td><td>15200000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>7,087.407 &mu;s</td><td>2,906.4239 &mu;s</td><td>159.3109 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>1,106.468 &mu;s</td><td>315.0647 &mu;s</td><td>17.2698 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>728.984 &mu;s</td><td>85.5884 &mu;s</td><td>56.6114 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>115.989 &mu;s</td><td>6.1875 &mu;s</td><td>4.0926 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>679.680 &mu;s</td><td>14.6111 &mu;s</td><td>0.8009 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>112.098 &mu;s</td><td>11.7600 &mu;s</td><td>0.6446 &mu;s</td><td>80.6885</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>688.638 &mu;s</td><td>7.1431 &mu;s</td><td>4.7247 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>131.058 &mu;s</td><td>22.5184 &mu;s</td><td>14.8946 &mu;s</td><td>80.6885</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>805.335 &mu;s</td><td>369.1188 &mu;s</td><td>20.2326 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>126.191 &mu;s</td><td>42.9418 &mu;s</td><td>2.3538 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>829.195 &mu;s</td><td>53.9830 &mu;s</td><td>32.1244 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>122.092 &mu;s</td><td>5.5522 &mu;s</td><td>3.3040 &mu;s</td><td>80.6885</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>829.869 &mu;s</td><td>569.2342 &mu;s</td><td>31.2016 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>125.265 &mu;s</td><td>104.1694 &mu;s</td><td>5.7099 &mu;s</td><td>80.6885</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>78.633 &mu;s</td><td>2.9772 &mu;s</td><td>1.7717 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>14.461 &mu;s</td><td>3.1405 &mu;s</td><td>2.0772 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>78.787 &mu;s</td><td>88.3581 &mu;s</td><td>4.8432 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>12.712 &mu;s</td><td>19.1567 &mu;s</td><td>1.0500 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>103.456 &mu;s</td><td>17.4900 &mu;s</td><td>11.5685 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>13.387 &mu;s</td><td>3.3059 &mu;s</td><td>2.1866 &mu;s</td><td>8.0566</td><td>152000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>82.144 &mu;s</td><td>16.6079 &mu;s</td><td>0.9103 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>12.196 &mu;s</td><td>2.8157 &mu;s</td><td>0.1543 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>76.197 &mu;s</td><td>1.9706 &mu;s</td><td>1.3034 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>11.858 &mu;s</td><td>1.0115 &mu;s</td><td>0.5291 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>76.037 &mu;s</td><td>53.6157 &mu;s</td><td>2.9389 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>13.719 &mu;s</td><td>42.4314 &mu;s</td><td>2.3258 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>9,745.646 &mu;s</td><td>1,938.5005 &mu;s</td><td>1,282.1980 &mu;s</td><td>-</td><td>6 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>1,263.032 &mu;s</td><td>252.2149 &mu;s</td><td>166.8246 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>7,477.911 &mu;s</td><td>1,663.1704 &mu;s</td><td>91.1640 &mu;s</td><td>-</td><td>6 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>1,234.553 &mu;s</td><td>678.6830 &mu;s</td><td>37.2009 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>7,710.924 &mu;s</td><td>222.2690 &mu;s</td><td>147.0172 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>1,335.207 &mu;s</td><td>266.1096 &mu;s</td><td>176.0150 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>7,345.865 &mu;s</td><td>853.7126 &mu;s</td><td>46.7949 &mu;s</td><td>-</td><td>6 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>1,223.282 &mu;s</td><td>1,501.4496 &mu;s</td><td>82.2995 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>8,024.535 &mu;s</td><td>1,029.9533 &mu;s</td><td>612.9087 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>1,191.782 &mu;s</td><td>19.7383 &mu;s</td><td>13.0556 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>7,824.605 &mu;s</td><td>4,744.2101 &mu;s</td><td>260.0462 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>1,513.065 &mu;s</td><td>596.5303 &mu;s</td><td>32.6978 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>827.615 &mu;s</td><td>121.8514 &mu;s</td><td>80.5972 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>135.627 &mu;s</td><td>17.6183 &mu;s</td><td>11.6534 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>1,059.410 &mu;s</td><td>1,349.1225 &mu;s</td><td>73.9500 &mu;s</td><td>-</td><td>1 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>113.019 &mu;s</td><td>7.2788 &mu;s</td><td>0.3990 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>756.743 &mu;s</td><td>54.0337 &mu;s</td><td>35.7399 &mu;s</td><td>-</td><td>1 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>130.441 &mu;s</td><td>19.5555 &mu;s</td><td>12.9348 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>791.707 &mu;s</td><td>377.3951 &mu;s</td><td>20.6863 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>139.991 &mu;s</td><td>265.5908 &mu;s</td><td>14.5579 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>837.686 &mu;s</td><td>48.5344 &mu;s</td><td>28.8820 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>133.369 &mu;s</td><td>11.6808 &mu;s</td><td>7.7261 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>938.276 &mu;s</td><td>691.9161 &mu;s</td><td>37.9263 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>141.869 &mu;s</td><td>219.7549 &mu;s</td><td>12.0455 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>87.162 &mu;s</td><td>15.4473 &mu;s</td><td>10.2175 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>14.565 &mu;s</td><td>2.4446 &mu;s</td><td>1.6169 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>93.125 &mu;s</td><td>225.9043 &mu;s</td><td>12.3826 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>16.663 &mu;s</td><td>33.8986 &mu;s</td><td>1.8581 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>94.872 &mu;s</td><td>17.5091 &mu;s</td><td>11.5812 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>13.388 &mu;s</td><td>1.7561 &mu;s</td><td>1.0450 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>81.575 &mu;s</td><td>67.9806 &mu;s</td><td>3.7262 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>12.637 &mu;s</td><td>5.6358 &mu;s</td><td>0.3089 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>93.299 &mu;s</td><td>13.1915 &mu;s</td><td>8.7254 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>14.371 &mu;s</td><td>1.1640 &mu;s</td><td>0.6088 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;HandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>100.768 &mu;s</td><td>53.6066 &mu;s</td><td>2.9384 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;HandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>14.606 &mu;s</td><td>40.6386 &mu;s</td><td>2.2275 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>16.550 &mu;s</td><td>1.4233 &mu;s</td><td>0.9414 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>9.625 &mu;s</td><td>1.8819 &mu;s</td><td>1.2447 &mu;s</td><td>0.8392</td><td>16000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>18.381 &mu;s</td><td>5.7476 &mu;s</td><td>0.3150 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>7.720 &mu;s</td><td>0.7407 &mu;s</td><td>0.0406 &mu;s</td><td>0.8392</td><td>16000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>77.729 &mu;s</td><td>4.5727 &mu;s</td><td>2.7212 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>73.904 &mu;s</td><td>5.3098 &mu;s</td><td>3.5121 &mu;s</td><td>0.7324</td><td>16000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>73.197 &mu;s</td><td>10.7205 &mu;s</td><td>0.5876 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>70.968 &mu;s</td><td>24.7813 &mu;s</td><td>1.3583 &mu;s</td><td>0.7324</td><td>16000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>810.740 &mu;s</td><td>133.2239 &mu;s</td><td>88.1194 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>701.050 &mu;s</td><td>23.4584 &mu;s</td><td>12.2692 &mu;s</td><td>-</td><td>16000 B</td>
+</tr><tr><td>&#39;Large Payload - Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>701.744 &mu;s</td><td>318.4408 &mu;s</td><td>17.4548 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Large Payload - New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>687.515 &mu;s</td><td>23.1084 &mu;s</td><td>1.2667 &mu;s</td><td>-</td><td>16000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>152.265 &mu;s</td><td>6.0109 &mu;s</td><td>3.5770 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>22.883 &mu;s</td><td>2.8917 &mu;s</td><td>1.9127 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>164.390 &mu;s</td><td>11.4464 &mu;s</td><td>6.8116 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>23.834 &mu;s</td><td>5.1657 &mu;s</td><td>3.0741 &mu;s</td><td>16.1133</td><td>304000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>148.726 &mu;s</td><td>239.8905 &mu;s</td><td>13.1492 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>19.146 &mu;s</td><td>34.4875 &mu;s</td><td>1.8904 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>134.265 &mu;s</td><td>22.8890 &mu;s</td><td>1.2546 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>17.567 &mu;s</td><td>2.8703 &mu;s</td><td>0.1573 &mu;s</td><td>16.1438</td><td>304000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>139.447 &mu;s</td><td>1.2347 &mu;s</td><td>0.8167 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>16.024 &mu;s</td><td>0.1954 &mu;s</td><td>0.1292 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>137.954 &mu;s</td><td>0.2904 &mu;s</td><td>0.1728 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>19.367 &mu;s</td><td>4.3715 &mu;s</td><td>2.8915 &mu;s</td><td>16.1438</td><td>304000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>132.574 &mu;s</td><td>40.4992 &mu;s</td><td>2.2199 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>16.630 &mu;s</td><td>21.3749 &mu;s</td><td>1.1716 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>132.192 &mu;s</td><td>0.3266 &mu;s</td><td>0.0179 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>17.597 &mu;s</td><td>1.6722 &mu;s</td><td>0.0917 &mu;s</td><td>16.1438</td><td>304000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>134.348 &mu;s</td><td>12.8020 &mu;s</td><td>6.6957 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>15.550 &mu;s</td><td>0.5844 &mu;s</td><td>0.3056 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>161.120 &mu;s</td><td>27.9374 &mu;s</td><td>18.4788 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>18.741 &mu;s</td><td>1.7748 &mu;s</td><td>0.9283 &mu;s</td><td>16.1438</td><td>304000 B</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle Pooled Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>130.830 &mu;s</td><td>16.0635 &mu;s</td><td>0.8805 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: TryHandle + Handle New Chain&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>17.054 &mu;s</td><td>47.0289 &mu;s</td><td>2.5778 &mu;s</td><td>16.5710</td><td>312000 B</td>
+</tr><tr><td>&#39;Real-world: Async Chain Pooled&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>138.754 &mu;s</td><td>4.0157 &mu;s</td><td>0.2201 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;Real-world: Async Chain New&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>22.561 &mu;s</td><td>99.2763 &mu;s</td><td>5.4417 &mu;s</td><td>16.1438</td><td>304000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>7,016.195 &mu;s</td><td>269.7474 &mu;s</td><td>160.5224 &mu;s</td><td>-</td><td>6 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>1,149.338 &mu;s</td><td>218.3956 &mu;s</td><td>129.9637 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>6,851.096 &mu;s</td><td>6,952.8937 &mu;s</td><td>381.1116 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>1,089.314 &mu;s</td><td>335.0548 &mu;s</td><td>18.3655 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>6,912.185 &mu;s</td><td>60.6028 &mu;s</td><td>40.0850 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>1,278.170 &mu;s</td><td>13.6785 &mu;s</td><td>7.1541 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>8,448.677 &mu;s</td><td>7,261.1087 &mu;s</td><td>398.0059 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>1,416.108 &mu;s</td><td>1,372.1125 &mu;s</td><td>75.2101 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>7,158.611 &mu;s</td><td>129.0762 &mu;s</td><td>76.8112 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>1,252.131 &mu;s</td><td>45.1026 &mu;s</td><td>26.8398 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>7,347.808 &mu;s</td><td>308.1256 &mu;s</td><td>16.8894 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>1,288.513 &mu;s</td><td>1,062.7790 &mu;s</td><td>58.2545 &mu;s</td><td>806.6406</td><td>15200001 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>803.919 &mu;s</td><td>48.8999 &mu;s</td><td>32.3442 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>140.096 &mu;s</td><td>11.8010 &mu;s</td><td>7.8057 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>802.612 &mu;s</td><td>277.6147 &mu;s</td><td>15.2170 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>155.718 &mu;s</td><td>160.3382 &mu;s</td><td>8.7887 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>799.160 &mu;s</td><td>8.0926 &mu;s</td><td>4.2326 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>139.092 &mu;s</td><td>9.5651 &mu;s</td><td>5.6920 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>795.261 &mu;s</td><td>169.5189 &mu;s</td><td>9.2919 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>173.678 &mu;s</td><td>400.9788 &mu;s</td><td>21.9790 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>816.392 &mu;s</td><td>47.8394 &mu;s</td><td>31.6428 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>153.873 &mu;s</td><td>11.8180 &mu;s</td><td>6.1811 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>910.265 &mu;s</td><td>1,859.0866 &mu;s</td><td>101.9028 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>153.796 &mu;s</td><td>81.6514 &mu;s</td><td>4.4756 &mu;s</td><td>80.5664</td><td>1520000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>84.741 &mu;s</td><td>5.4981 &mu;s</td><td>3.2718 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>14.329 &mu;s</td><td>1.4076 &mu;s</td><td>0.7362 &mu;s</td><td>8.0566</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>105.757 &mu;s</td><td>136.2760 &mu;s</td><td>7.4698 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>18.610 &mu;s</td><td>18.2729 &mu;s</td><td>1.0016 &mu;s</td><td>8.0566</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>82.246 &mu;s</td><td>3.2566 &mu;s</td><td>1.7033 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>17.735 &mu;s</td><td>3.3473 &mu;s</td><td>2.2140 &mu;s</td><td>8.0566</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>84.341 &mu;s</td><td>72.6073 &mu;s</td><td>3.9799 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>14.138 &mu;s</td><td>8.4662 &mu;s</td><td>0.4641 &mu;s</td><td>8.0566</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>81.260 &mu;s</td><td>4.8063 &mu;s</td><td>2.8602 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>14.057 &mu;s</td><td>1.5366 &mu;s</td><td>0.9144 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>79.888 &mu;s</td><td>9.9711 &mu;s</td><td>0.5466 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandleAsyncPromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>13.860 &mu;s</td><td>1.5987 &mu;s</td><td>0.0876 &mu;s</td><td>8.0719</td><td>152000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>7,358.994 &mu;s</td><td>1,239.5887 &mu;s</td><td>819.9112 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>992.173 &mu;s</td><td>199.8148 &mu;s</td><td>132.1651 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>6,514.085 &mu;s</td><td>942.8074 &mu;s</td><td>51.6785 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>1,007.715 &mu;s</td><td>2,987.1564 &mu;s</td><td>163.7361 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>6,564.469 &mu;s</td><td>344.7413 &mu;s</td><td>180.3064 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>876.670 &mu;s</td><td>55.2331 &mu;s</td><td>32.8683 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>6,859.342 &mu;s</td><td>1,894.0088 &mu;s</td><td>103.8170 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>873.348 &mu;s</td><td>1,046.5928 &mu;s</td><td>57.3673 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>6,442.889 &mu;s</td><td>235.4291 &mu;s</td><td>140.1001 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>929.626 &mu;s</td><td>142.4520 &mu;s</td><td>94.2231 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>6,504.453 &mu;s</td><td>1,777.8250 &mu;s</td><td>97.4486 &mu;s</td><td>-</td><td>3 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (100K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>980.011 &mu;s</td><td>423.6632 &mu;s</td><td>23.2224 &mu;s</td><td>849.6094</td><td>16000000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>663.589 &mu;s</td><td>16.1772 &mu;s</td><td>10.7002 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>84.307 &mu;s</td><td>3.7505 &mu;s</td><td>2.4807 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>667.371 &mu;s</td><td>42.9255 &mu;s</td><td>2.3529 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>113.932 &mu;s</td><td>70.9039 &mu;s</td><td>3.8865 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>671.757 &mu;s</td><td>4.3045 &mu;s</td><td>2.8471 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>99.870 &mu;s</td><td>1.6745 &mu;s</td><td>1.1076 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>671.717 &mu;s</td><td>393.1843 &mu;s</td><td>21.5518 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>101.263 &mu;s</td><td>27.2194 &mu;s</td><td>1.4920 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>670.329 &mu;s</td><td>6.7646 &mu;s</td><td>4.4743 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>97.410 &mu;s</td><td>2.2109 &mu;s</td><td>1.1563 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>697.236 &mu;s</td><td>41.8472 &mu;s</td><td>2.2938 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (10K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>108.296 &mu;s</td><td>99.0897 &mu;s</td><td>5.4314 &mu;s</td><td>84.9609</td><td>1600000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>79.550 &mu;s</td><td>2.8637 &mu;s</td><td>1.8942 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>100</td><td>11.733 &mu;s</td><td>0.5129 &mu;s</td><td>0.3052 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>76.224 &mu;s</td><td>52.5443 &mu;s</td><td>2.8801 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>100</td><td>10.790 &mu;s</td><td>7.4196 &mu;s</td><td>0.4067 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>75.411 &mu;s</td><td>1.5030 &mu;s</td><td>0.8944 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>1000</td><td>11.792 &mu;s</td><td>0.7157 &mu;s</td><td>0.4734 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>75.591 &mu;s</td><td>51.3900 &mu;s</td><td>2.8169 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>1000</td><td>8.540 &mu;s</td><td>1.2382 &mu;s</td><td>0.0679 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>64.910 &mu;s</td><td>0.9503 &mu;s</td><td>0.5655 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>Job-BDLTLX</td><td>10</td><td>Default</td><td>10000</td><td>10.253 &mu;s</td><td>2.6674 &mu;s</td><td>1.7643 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - Pooled (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>68.296 &mu;s</td><td>4.5150 &mu;s</td><td>0.2475 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;TryHandlePromiseSource - New (1K ops)&#39;</td><td>ShortRun</td><td>3</td><td>1</td><td>10000</td><td>8.442 &mu;s</td><td>8.9843 &mu;s</td><td>0.4925 &mu;s</td><td>8.4991</td><td>160000 B</td>
+</tr></tbody></table>
+</body>
+</html>

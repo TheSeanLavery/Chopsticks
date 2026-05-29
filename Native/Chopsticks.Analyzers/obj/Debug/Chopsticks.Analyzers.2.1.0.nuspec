@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Chopsticks.Analyzers</id>
+    <version>2.1.0</version>
+    <authors>Sean</authors>
+    <developmentDependency>true</developmentDependency>
+    <description>Roslyn analyzers for Chopsticks framework - detects unconsumed HandlingResultPromise returns and suggests fire-and-forget API.</description>
+    <tags>roslyn analyzer chopsticks performance</tags>
+    <repository type="git" commit="c5a2b7b84a1f4954807822a07ccceed891eee407" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="A:\g\Chopsticks2\Native\Chopsticks.Analyzers\bin\Debug\netstandard2.0\Chopsticks.Analyzers.dll" target="analyzers\dotnet\cs\Chopsticks.Analyzers.dll" />
+  </files>
+</package>

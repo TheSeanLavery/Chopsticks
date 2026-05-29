@@ -1,0 +1,11 @@
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.csproj.AssemblyReference.cache
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.GeneratedMSBuildEditorConfig.editorconfig
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.AssemblyInfoInputs.cache
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.AssemblyInfo.cs
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.csproj.CoreCompileInputs.cache
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.sourcelink.json
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\bin\Debug\netstandard2.0\Chopsticks.Analyzers.deps.json
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\bin\Debug\netstandard2.0\Chopsticks.Analyzers.dll
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\bin\Debug\netstandard2.0\Chopsticks.Analyzers.pdb
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.dll
+A:\g\Chopsticks2\Native\Chopsticks.Analyzers\obj\Debug\netstandard2.0\Chopsticks.Analyzers.pdb

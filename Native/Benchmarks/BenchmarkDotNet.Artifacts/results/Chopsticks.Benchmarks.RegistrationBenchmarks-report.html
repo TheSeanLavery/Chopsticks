@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Chopsticks.Benchmarks.RegistrationBenchmarks-20260519-105933</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26200.8457)
+Unknown processor
+.NET SDK 9.0.314
+  [Host]     : .NET 9.0.16 (9.0.1626.22923), X64 RyuJIT AVX2
+  Job-HQBIJM : .NET 9.0.16 (9.0.1626.22923), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>IterationCount=5  WarmupCount=2  
+</code></pre>
+
+<table>
+<thead><tr><th>Method                  </th><th>Mean </th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Register_FirstHandler</td><td>62.90 ns</td><td>44.24 ns</td><td>11.490 ns</td><td>0.0276</td><td>-</td><td>520 B</td>
+</tr><tr><td>Register_5Handlers_Sequential</td><td>214.51 ns</td><td>34.33 ns</td><td>8.916 ns</td><td>0.0708</td><td>0.0002</td><td>1336 B</td>
+</tr><tr><td>Register_10Handlers_Sequential</td><td>451.60 ns</td><td>39.46 ns</td><td>10.248 ns</td><td>0.1426</td><td>0.0010</td><td>2688 B</td>
+</tr><tr><td>Register_WithVaryingOrder</td><td>255.26 ns</td><td>75.33 ns</td><td>19.564 ns</td><td>0.0706</td><td>-</td><td>1336 B</td>
+</tr><tr><td>AccessHandlerArray_1Handler</td><td>4,624.10 ns</td><td>174.38 ns</td><td>26.985 ns</td><td>1.6403</td><td>-</td><td>30920 B</td>
+</tr></tbody></table>
+</body>
+</html>
